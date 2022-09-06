@@ -5,3 +5,6 @@ import alien
 game_finished = False
 remaining_attempts = len(alien.ALIENS) - 1
 display = []
+
+print(alien.LOGO)
+print("        WELCOME TO ALIEN INVASION..!\n")
