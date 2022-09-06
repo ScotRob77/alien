@@ -14,7 +14,7 @@ def select_random_country(country_list):
     Will randomly select a country from the list of countries
     """
     return random.choice(country_list)
-print(select_random_country(country_list))
+
 
 random_country = select_random_country(country_list)
 country_length = len(random_country)
@@ -23,10 +23,16 @@ for _ in range(country_length):
     display += "_"
 
 while not game_finished:
-    guess = input("Guess a letter: ").strip()
+    guess = input("Guess a letter: ").upper()
+    if len(guess) != 1:
+        print("Whoa there Earthling. One letter at a time..!\n")
 
     if guess in display:
-        print(f"You've already guessed {guess}")
+        print(f"You've already guessed {guess}, Choose again...")
+
+    if guess not in 'abcdefghijklmnoprstuvwxyz':
+        print("Please enter a LETTER.")
+   
 
     for position in range(country_length):
         letter = random_country[position]
@@ -47,4 +53,3 @@ while not game_finished:
             print("You Won")
 
         print(alien.ALIENS[remaining_attempts])
-        

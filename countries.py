@@ -166,3 +166,6 @@ country_list = [
     'Yemen',
     'Zambia',
     'Zimbabwe']
+
+for country in range(len(country_list)):
+    country_list[country] = country_list[country].upper()
