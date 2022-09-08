@@ -73,16 +73,14 @@ while not game_finished:
     guess = input("Guess a letter...").upper()
     if len(guess) != 1:
         print("Whoa there Earthling. One letter at a time..!\n")
-        remaining_attempts += 1
 
     if guess in display:
         print(f"You've already guessed {guess}, Choose again...\n")
-        remaining_attempts += 1
+        
 
     if guess not in alphabet:
         print("Please enter a LETTER.\n")
-        remaining_attempts += 1
-
+        
 
     for position in range(country_length):
         letter = random_country[position]
