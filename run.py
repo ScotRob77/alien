@@ -73,12 +73,15 @@ while not game_finished:
     guess = input("Guess a letter...").upper()
     if len(guess) != 1:
         print("Whoa there Earthling. One letter at a time..!\n")
+        remaining_attempts += 1
 
     if guess in display:
         print(f"You've already guessed {guess}, Choose again...\n")
+        remaining_attempts += 1
 
     if guess not in alphabet:
         print("Please enter a LETTER.\n")
+        remaining_attempts += 1
 
 
     for position in range(country_length):
@@ -88,9 +91,7 @@ while not game_finished:
     print(f"{' '.join(display)}")
 
     if guess in random_country:
-        def jls_extract_def():
-            return print
-        jls_extract_def()("Well done... You guessed correctly..\n")
+        print(f"Well done... You guessed {guess} and that is right..\n")
 
     if guess not in random_country:
         print(f"You guessed {guess}, that's not in the country...\n")
@@ -100,9 +101,12 @@ while not game_finished:
         if "_" not in display:
             game_finished = True
             print("You Won")
+            intro()
 
         if remaining_attempts == 0:
             game_finished = True
-            print("Game Over.... You lose..!")
+            print("Game Over.... You lose..!\n\n")
+            intro()
 
         print(alien.ALIENS[remaining_attempts])
+
