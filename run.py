@@ -15,10 +15,11 @@ print(alien.LOGO)
 def start_game():
     print("Before you start you need to tell us your name.\n")
     
-    user = input("What is your name Earthling?\n")
+    user = input("What is your name Earthling?\n").capitalize()
     print("\n")
     print(f"Greetings {user}...\n")
     print("Where do you think we will invade...\n")
+    print(alien.LOGO)
 
     return user
 
@@ -70,8 +71,8 @@ for _ in range(country_length):
 
 
 while not game_finished:
-    guess = input("Guess a letter...").upper()
-    if len(guess) != 1:
+    guess = input("Guess a letter...").strip().upper()
+    if len(guess) != 1 and guess.isalpha():
         print("Whoa there Earthling. One letter at a time..!\n")
 
     if guess in display:
